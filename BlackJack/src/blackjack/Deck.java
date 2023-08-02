@@ -1,7 +1,7 @@
-package lab7;
+package blackjack;
 
 import java.util.Random;
-import lab7.Card.Suit;
+import blackjack.Card.Suit;
 
 /**
  * Class representing a standard 52-card deck of playing
@@ -47,7 +47,7 @@ public class Deck
 	
     for(int i = 0; i < k; i++)
     {
-    	cards[i] = ;
+    	cards[i] = rand.;
     }
     return cards;
   }

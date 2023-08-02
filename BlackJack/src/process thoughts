@@ -1,0 +1,20 @@
+Card class:
+suit
+number
+
+Deck Class:
+arraylist of 52 cards
+shuffle
+can only get one of each card
+
+Shoe Class:
+declare how many decks
+shuffle all decks
+can get multiple of same card
+
+Game Class:
+deal cards to player and dealer
+can hit, stay, double or split
+draw random cards for player and dealer
+stand on 17
+blackjack pay immediately 3:2
