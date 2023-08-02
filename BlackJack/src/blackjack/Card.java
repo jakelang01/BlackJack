@@ -2,7 +2,7 @@ package blackjack;
 
 import java.util.Random;
 
-public class NewCard {
+public class Card {
 
 	public enum Suit
 	{
@@ -34,7 +34,7 @@ public class NewCard {
 	private Rank rank;
 	private Random rand;
 	
-	public NewCard(Rank r, Suit s)
+	public Card(Rank r, Suit s)
 	{
 		suit = s;
 		rank = r;
