@@ -27,9 +27,7 @@ public class Card
   /**
    * Names used for displaying strings.
    */
-  private final String[] NAMES = {"Dummy", // element 0 not used
-    "Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine",
-    "Ten", "Jack", "Queen", "King"};
+  private final String[] NAMES = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
 
   /**
    * Constructs a card with the given rank and suit. Ranks are assumed to be in
