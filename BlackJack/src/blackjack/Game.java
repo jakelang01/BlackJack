@@ -2,13 +2,24 @@ package blackjack;
 
 public class Game 
 {
+	private Shoe shoe;
+	private Player one;
+	private Player dealer;
+	
+	public Game()
+	{
+		shoe = new Shoe(6);
+		one = new Player("Jake");
+		dealer = new Player("Dealer");
+	}
+	
 	public Card[] getHand()
 	{
-		
+		return null;
 	}
-	public void hit()
+	public Card hit()
 	{
-		
+		return null;
 	}
 	
 	public void stay()
@@ -16,13 +27,19 @@ public class Game
 		
 	}
 	
-	public void doubleDown()
+	public Card doubleDown()
 	{
-		
+		return null;
 	}
 	
-	public void split()
+	public Card split()
 	{
+		return null;
+	}
+	
+	public Card drawCard()
+	{
+		return null;
 		
 	}
 }

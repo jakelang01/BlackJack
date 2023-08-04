@@ -12,6 +12,9 @@ declare how many decks
 shuffle all decks
 can get multiple of same card
 
+Player Class:
+name
+
 Game Class:
 deal cards to player and dealer
 can hit, stay, double or split
