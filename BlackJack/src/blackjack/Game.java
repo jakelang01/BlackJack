@@ -1,8 +1,28 @@
 package blackjack;
 
-public class Game {
-
-	public static void main(String[] args) {
+public class Game 
+{
+	public Card[] getHand()
+	{
+		
+	}
+	public void hit()
+	{
+		
+	}
+	
+	public void stay()
+	{
+		
+	}
+	
+	public void doubleDown()
+	{
+		
+	}
+	
+	public void split()
+	{
 		
 	}
 }
