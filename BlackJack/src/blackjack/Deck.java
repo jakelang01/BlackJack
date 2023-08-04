@@ -1,75 +1,47 @@
 package blackjack;
 
 import java.util.Random;
-import blackjack.Card.Suit;
 
-/**
- * Class representing a standard 52-card deck of playing
- * cards from which cards can be selected at random.
- */
+import blackjack.Card.Rank;
+import blackjack.Card.Suit;
+import java.util.Arrays;
+import java.util.Collections;
+
 public class Deck
 {
-  /**
-   * The cards comprising this deck.
-   */
-  private Card[] cards;
-  
-  /**
-   * The random number generator to use for selecting cards.
-   */
+  private Card[] deck;
   private Random rand;
   
-  /**
-   * Constructs a new deck with a default random number generator.
-   */
   public Deck()
   {
-    rand = new Random();
-    init();
-  }
-
-  /**
-   * Constructs a new deck with the given random number generator.
-   */
-  public Deck(Random givenGenerator)
-  {
-    rand = givenGenerator;
-	init();
+	  rand = new Random();
+	  fill();
+	  shuffle(deck);
   }
   
-  /**
-   * Returns a new array containing k elements selected
-   * at random from this deck.
-   */
-  public Card[] select(int k)
+  public void shuffle(Card[] deck)
   {
-	Card[] cards = new Card[k];
+	  Collections.shuffle(Arrays.asList(deck));
+  }
+  
+  public Card select(Card[] deck)
+  {
+	  int index = rand.nextInt(52);
+	  return deck[index];
+  }
+  
+  public void fill()
+  {
+	  deck = new Card[52];
 	
-    for(int i = 0; i < k; i++)
-    {
-    	cards[i] = rand.;
-    }
-    return cards;
-  }
-  
-  /**
-   * Initializes a new deck of 52 cards.
-   */
-  private void init()
-  {
-    cards = new Card[52];
-    int index = 0;
-    for (int rank = 1; rank <= 13; ++rank)
-    {
-      cards[index] = new Card(rank, Suit.CLUBS);
-      index += 1;
-      cards[index] = new Card(rank, Suit.DIAMONDS);
-      index += 1;
-      cards[index] = new Card(rank, Suit.HEARTS);
-      index += 1;
-      cards[index] = new Card(rank, Suit.SPADES);
-      index += 1;
-    }
-
+	  int i = 0;
+	  for(Suit s : Suit.values())
+	  {
+	  	for(Rank r : Rank.values())
+	  	{
+	  		deck[i] = new Card(r,s);
+	  		i++;
+	  	}
+	  }
   }
 }
