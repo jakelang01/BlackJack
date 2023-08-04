@@ -1,45 +1,38 @@
 package blackjack;
 
-public class Game 
-{
+public class Game {
 	private Shoe shoe;
 	private Player one;
 	private Player dealer;
-	
-	public Game()
-	{
+
+	public Game() {
 		shoe = new Shoe(6);
 		one = new Player("Jake");
 		dealer = new Player("Dealer");
 	}
-	
-	public Card[] getHand()
-	{
+
+	public Card[] getHand() {
 		return null;
 	}
-	public Card hit()
-	{
+
+	public Card hit() {
 		return null;
 	}
-	
-	public void stay()
-	{
-		
+
+	public void stay() {
+
 	}
-	
-	public Card doubleDown()
-	{
+
+	public Card doubleDown() {
 		return null;
 	}
-	
-	public Card split()
-	{
+
+	public Card split() {
 		return null;
 	}
-	
-	public Card drawCard()
-	{
+
+	public Card drawCard() {
 		return null;
-		
+
 	}
 }

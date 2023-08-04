@@ -26,3 +26,16 @@ draw random cards for player and dealer
 stand on 17
 blackjack pay immediately 3:2
 reshuffle if cards less than 5 * players
+
+BlackJack:
+-Card
+	-CardCollection
+		-Hand
+		-Shoe
+-Player
+	-Person
+	-Dealer
+-Game
+	-Deal cards
+	-Player Actions
+	-Compare player vs dealer

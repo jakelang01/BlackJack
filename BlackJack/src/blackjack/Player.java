@@ -1,18 +1,13 @@
 package blackjack;
 
-public class Player 
-{
+public class Player {
 	private String name;
-	private Card[] hand;
-	
-	public Player(String name)
-	{
+
+	public Player(String name) {
 		this.name = name;
-		hand = new Card[2];
 	}
-	
-	public String getName()
-	{
+
+	public String getName() {
 		return name;
 	}
 }
