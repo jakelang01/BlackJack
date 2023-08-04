@@ -7,14 +7,23 @@ import blackjack.Card.Suit;
 import java.util.Arrays;
 import java.util.Collections;
 
-public class Deck
+public class CardCollection
 {
   private Card[] deck;
   private Random rand;
   
-  public Deck()
+  public CardCollection()
   {
 	  rand = new Random();
+	  deck = new Card[52];
+	  fill();
+	  shuffle(deck);
+  }
+  
+  public CardCollection(int size)
+  {
+	  rand = new Random();
+	  deck = new Card[size];
 	  fill();
 	  shuffle(deck);
   }
@@ -32,8 +41,6 @@ public class Deck
   
   public void fill()
   {
-	  deck = new Card[52];
-	
 	  int i = 0;
 	  for(Suit s : Suit.values())
 	  {

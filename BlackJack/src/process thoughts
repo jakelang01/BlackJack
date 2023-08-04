@@ -18,6 +18,11 @@ name
 Game Class:
 deal cards to player and dealer
 can hit, stay, double or split
+--hit: give player another card
+--stay: move to next player
+--double: give player one card
+--split: split cards and play each hand normal
 draw random cards for player and dealer
 stand on 17
 blackjack pay immediately 3:2
+reshuffle if cards less than 5 * players

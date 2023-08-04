@@ -5,7 +5,7 @@ import java.util.Random;
 import blackjack.Card.Rank;
 import blackjack.Card.Suit;
 
-public class Shoe extends Deck 
+public class Shoe extends CardCollection 
 {
 	private Card[] shoe;
 	private Random rand;
