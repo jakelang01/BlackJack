@@ -19,8 +19,6 @@ public class CardTest {
 		Suit[] suits = Suit.values();
 		Card newCard = new Card(ranks[rand.nextInt(ranks.length)], suits[rand.nextInt(suits.length)]);
 		System.out.println(newCard.toString());
-		
-		System.out.println();		
 	}
 
 }

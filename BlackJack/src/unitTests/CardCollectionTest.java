@@ -29,6 +29,8 @@ public class CardCollectionTest {
 		System.out.println("\npick first card from deck and shuffled shoe");
 		System.out.println(deck.select());
 		System.out.println(shoe.select());
+		
+		System.out.println(hand.getCollection());
 	}
 
 }
