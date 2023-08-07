@@ -1,19 +1,24 @@
 Card class:
-suit
-number
+getSuit()
+getRank()
+getValue()?
+toString()
 
-Deck Class:
-arraylist of 52 cards
-shuffle
-can only get one of each card
+CardCollection Class:
+shuffle()
+select()
+fillDeck()
+fillShoe()
+getCollection()
 
-Shoe Class:
-declare how many decks
-shuffle all decks
-can get multiple of same card
+Shoe Class: extends CardCollection
+
+
+Hand Class: extends CardCollection
+
 
 Player Class:
-name
+getName()
 
 Game Class:
 deal cards to player and dealer
@@ -29,9 +34,9 @@ reshuffle if cards less than 5 * players
 
 BlackJack:
 -Card
-	-CardCollection
-		-Hand
-		-Shoe
+-CardCollection
+	-Hand
+	-Shoe
 -Player
 	-Person
 	-Dealer

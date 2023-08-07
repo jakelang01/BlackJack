@@ -1,10 +1,8 @@
 package blackjack;
 
-import java.util.Random;
-
 public class Card {
 	public enum Suit {
-		CLUBS, DIAMONDS, HEARTS, SPADES
+		Clubs, Diamonds, Hearts, Spades
 	};
 
 	public enum Rank {

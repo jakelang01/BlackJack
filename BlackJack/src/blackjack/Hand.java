@@ -1,15 +1,10 @@
 package blackjack;
 
-public class Hand {
+public class Hand extends CardCollection {
 	private CardCollection hand;
 
 	public Hand(int handSize) {
-		hand = new CardCollection(2);
-		// fill(handSize);
+		super(handSize);
 	}
 
-	/**
-	 * public void fill(int handSize, Card[] deck) { for(int i = 0; i < handSize;
-	 * i++) { hand.select(deck); } }
-	 */
 }
