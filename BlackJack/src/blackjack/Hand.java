@@ -7,4 +7,8 @@ public class Hand extends CardCollection {
 		super(handSize);
 	}
 
+	public void insertCard(CardCollection deck)
+	{
+		collection[cardIndex] = deck.select();
+	}
 }
