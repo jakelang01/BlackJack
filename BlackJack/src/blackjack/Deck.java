@@ -11,6 +11,10 @@ public class Deck extends CardCollection {
 		super(standardDeck);
 		fill();
 	}
+	
+	public Deck(int numDecks) {
+		super(numDecks * standardDeck);
+	}
 
 	public void fill() {
 		int i = 0;
