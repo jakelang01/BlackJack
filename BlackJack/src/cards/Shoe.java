@@ -6,7 +6,6 @@ import cards.Card.Suit;
 public class Shoe extends CardCollection {
 
 	private static final int standardDeck = 52;
-	private int index = 0;
 
 	public Shoe(int decks) {
 		super(decks * standardDeck);
@@ -18,8 +17,7 @@ public class Shoe extends CardCollection {
 	public void fill() {
 		for (Suit s : Suit.values()) {
 			for (Rank r : Rank.values()) {
-				getCollection()[index] = new Card(r, s);
-				index++;
+				getCollection().add(new Card(r, s));
 			}
 		}
 	}

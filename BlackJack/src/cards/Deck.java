@@ -13,11 +13,9 @@ public class Deck extends CardCollection {
 	}
 	
 	public void fill() {
-		int i = 0;
 		for (Suit s : Suit.values()) {
 			for (Rank r : Rank.values()) {
-				getCollection()[i] = new Card(r, s);
-				i++;
+				getCollection().add(new Card(r, s));
 			}
 		}
 	}

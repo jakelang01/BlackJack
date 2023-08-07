@@ -8,7 +8,7 @@ public class CardCollectionTest {
 
 	public static void main(String[] args) {
 
-		System.out.println("\nprint out the deck");
+		System.out.println("print out the deck");
 		Deck deck = new Deck();
 		deck.printCollection();
 		
