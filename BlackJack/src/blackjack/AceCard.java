@@ -2,8 +2,8 @@ package blackjack;
 
 public class AceCard extends Card {
 	
-	public AceCard() {
-		super();
+	public AceCard(Suit suit) {
+		super(Rank.Ace, suit);
 	}
 	
 	@Override

@@ -2,8 +2,8 @@ package blackjack;
 
 public class FaceCard extends Card {
 
-	public FaceCard() {
-		super();
+	public FaceCard(Rank r, Suit s) {
+		super(r, s);
 	}
 	
 	@Override
