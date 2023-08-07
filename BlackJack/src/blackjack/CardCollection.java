@@ -28,9 +28,12 @@ public class CardCollection {
 	}
 
 	public void printCollection() {
-		for(int i = 0; i < collection.length; i++)
-		{
+		for (int i = 0; i < collection.length; i++) {
 			System.out.println(collection[i]);
 		}
+	}
+
+	public Card[] getCollection() {
+		return collection;
 	}
 }
