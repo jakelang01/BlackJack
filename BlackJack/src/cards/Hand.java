@@ -1,4 +1,4 @@
-package blackjack;
+package cards;
 
 public class Hand extends CardCollection {
 

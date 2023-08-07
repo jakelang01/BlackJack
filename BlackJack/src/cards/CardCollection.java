@@ -1,9 +1,10 @@
-package blackjack;
+package cards;
 
 import java.util.Random;
 
-import blackjack.Card.Rank;
-import blackjack.Card.Suit;
+import cards.Card.Rank;
+import cards.Card.Suit;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -12,7 +13,7 @@ public class CardCollection {
 
 	private Card collection[];
 	private Random rand;
-	private static int cardIndex = 0;
+	private int cardIndex = 0;
 
 	public CardCollection(int numCards) {
 		rand = new Random();

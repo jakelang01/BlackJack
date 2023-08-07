@@ -1,4 +1,4 @@
-package blackjack;
+package game;
 
 public class Player {
 	private String name;

@@ -1,7 +1,7 @@
-package blackjack;
+package cards;
 
-import blackjack.Card.Rank;
-import blackjack.Card.Suit;
+import cards.Card.Rank;
+import cards.Card.Suit;
 
 public class Shoe extends CardCollection {
 

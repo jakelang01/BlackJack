@@ -1,4 +1,4 @@
-package blackjack;
+package cards;
 
 public class FaceCard extends Card {
 

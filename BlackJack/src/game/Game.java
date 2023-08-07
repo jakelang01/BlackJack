@@ -1,4 +1,7 @@
-package blackjack;
+package game;
+
+import cards.Card;
+import cards.Shoe;
 
 public class Game {
 	private Shoe shoe;
