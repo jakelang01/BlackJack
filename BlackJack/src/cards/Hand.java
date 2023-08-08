@@ -82,5 +82,13 @@ public class Hand extends CardCollection {
 			return false;
 		}
 	}
+	
+	public void setBet() {
+		
+	}
+	
+	public int getBet() {
+		
+	}
 
 }
