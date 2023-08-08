@@ -1,9 +1,5 @@
 package cards;
 
-import java.util.ArrayList;
-
-import game.Player;
-
 /**
  * 
  * @author Jake Langenfeld
@@ -11,29 +7,29 @@ import game.Player;
  */
 
 public class Hand extends CardCollection {
-	
+
 	private int bet;
-	private Player player;
-	
+
 	/**
 	 * Creates a new hand object
 	 */
-	public Hand(Player name) {
+	public Hand() {
 		super();
 		bet = 0;
-		player = name;
 	}
 
 	/**
-	 * Adds a card from a deck/shoe collection to the hand
+	 * Adds the first card from the shoe to the hand
+	 * 
 	 * @param deck - the deck that the hand is taking from
 	 */
-	public void addCard(CardCollection deck) {
-		getCollection().add(deck.select());
+	public void addCard(CardCollection col) {
+		getCollection().add(col.select());
 	}
-	
+
 	/**
 	 * Adds a specific card to the hand
+	 * 
 	 * @param card - the card to be added to the hand
 	 */
 	public void addCard(Card card) {
@@ -46,6 +42,7 @@ public class Hand extends CardCollection {
 
 	/**
 	 * Calculates the soft value of the hand
+	 * 
 	 * @return - returns the soft value of the hand
 	 */
 	public int getSoftValue() {
@@ -58,6 +55,7 @@ public class Hand extends CardCollection {
 
 	/**
 	 * Calculates the hard value of the hand
+	 * 
 	 * @return - returns the hard value of the hand
 	 */
 	public int getHardValue() {
@@ -70,6 +68,7 @@ public class Hand extends CardCollection {
 
 	/**
 	 * Checks if the hand only has 2 dealt cards and they equals 21
+	 * 
 	 * @return - returns true if the hand is a blackjack otherwise returns false
 	 */
 	public boolean blackjack() {
@@ -82,6 +81,7 @@ public class Hand extends CardCollection {
 
 	/**
 	 * Checks if the hard value of the hand is over 21
+	 * 
 	 * @return - returns true if the hand is busted
 	 */
 	public boolean busted() {
@@ -91,11 +91,11 @@ public class Hand extends CardCollection {
 			return false;
 		}
 	}
-	
+
 	public void setBet(int bet) {
 		this.bet = bet;
 	}
-	
+
 	public int getBet() {
 		return bet;
 	}

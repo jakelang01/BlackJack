@@ -14,14 +14,14 @@ import cards.Hand;
 
 public class Game {
 	private Shoe shoe;
-	private Hand player;
-	private Hand dealer;
+	private Player player;
+	private Player dealer;
 
 	public Game() {
 		shoe = new Shoe(6);
 		shoe.shuffle();
-		player = new Hand();
-		dealer = new Hand();
+		player = new Player("Jake", 20);
+		dealer = new Player("Dealer");
 	}
 	
 	public Shoe getShoe() {
