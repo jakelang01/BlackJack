@@ -1,5 +1,11 @@
 package game;
 
+/**
+ * 
+ * @author Jake Langenfeld
+ *
+ */
+
 public class Player {
 	private String name;
 

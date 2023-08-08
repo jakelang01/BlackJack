@@ -1,5 +1,11 @@
 package unitTests;
 
+/**
+ * 
+ * @author Jake Langenfeld
+ *
+ */
+
 import java.util.Random;
 
 import cards.Card;
@@ -10,8 +16,10 @@ public class CardTest {
 
 	public static void main(String[] args) {
 		System.out.println("print out a card");
-		Card card = new Card(Rank.Jack, Suit.Clubs);
+		Card card = new Card(Rank.Ace, Suit.Clubs);
 		System.out.println(card.toString());
+		System.out.println(card.getRank());
+		System.out.println(card.getSuit());
 		
 		System.out.println("\nprint out a random card");
 		Random rand = new Random();
@@ -19,6 +27,11 @@ public class CardTest {
 		Suit[] suits = Suit.values();
 		Card newCard = new Card(ranks[rand.nextInt(ranks.length)], suits[rand.nextInt(suits.length)]);
 		System.out.println(newCard.toString());
+		
+		System.out.println(card.getSoftValue());
+		System.out.println(card.getHardValue());
+		System.out.println(newCard.getSoftValue());
+		System.out.println(newCard.getHardValue());
 	}
 
 }

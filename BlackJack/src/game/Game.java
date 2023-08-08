@@ -1,5 +1,11 @@
 package game;
 
+/**
+ * 
+ * @author Jake Langenfeld
+ *
+ */
+
 import cards.Card;
 import cards.Shoe;
 

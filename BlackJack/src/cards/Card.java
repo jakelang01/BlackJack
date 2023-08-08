@@ -1,5 +1,11 @@
 package cards;
 
+/**
+ * 
+ * @author Jake Langenfeld
+ *
+ */
+
 public class Card {
 
 	private Suit suit;
@@ -13,6 +19,11 @@ public class Card {
 		Ace, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Jack, Queen, King;
 	};
 
+	/**
+	 * Creates a new card object
+	 * @param r - the rank of the card
+	 * @param s - the suit of the card
+	 */
 	public Card(Rank r, Suit s) {
 		suit = s;
 		rank = r;
@@ -26,6 +37,10 @@ public class Card {
 		return suit;
 	}
 
+	/**
+	 * Evaluates the rank enum to determine what soft value it holds
+	 * @return - returns the soft value of the card
+	 */
 	public int getSoftValue() {
 		switch (rank) {
 		case Ace:
@@ -51,6 +66,10 @@ public class Card {
 		}
 	}
 
+	/**
+	 * Evaluates the rank enum to determine what hard value it holds
+	 * @return - returns the hard value of the card
+	 */
 	public int getHardValue() {
 		switch (rank) {
 		case Ace:
