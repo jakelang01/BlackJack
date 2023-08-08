@@ -20,7 +20,7 @@ public class Player {
 	/**
 	 * Keeps track of the current hand being played (if split and have multiple hands)
 	 */
-	private int handIndex;
+	private int playHand;
 
 	/**
 	 * Creates a new Player object
@@ -31,7 +31,7 @@ public class Player {
 		hands.add(new Hand());
 		this.name = name;
 		isTurn = false;
-		handIndex = 0;
+		playHand = 0;
 	}
 
 	/**
@@ -94,8 +94,8 @@ public class Player {
 	 * @param bet - amount of money for this hand
 	 */
 	public void placeBet(int bet) {
-		if (isTurn && getHand(handIndex).getHandSize() == 0) {
-			hands.get(handIndex).setBet(bet);
+		if (isTurn && getHand(playHand).getHandSize() == 0) {
+			hands.get(playHand).setBet(bet);
 		}
 	}
 
@@ -105,7 +105,7 @@ public class Player {
 	 */
 	public void hit(Shoe shoe) {
 		if (isTurn) {
-			hands.get(handIndex).addCard(shoe);
+			hands.get(playHand).addCard(shoe);
 			shoe.removeCard();
 		}
 	}
@@ -115,7 +115,7 @@ public class Player {
 	 */
 	public void stay() {
 		if (isTurn && hands.size() > 1) {
-			handIndex++; // move to next player
+			playHand++; // move to next player
 		} else if(isTurn) {
 			changeTurn();
 		}
@@ -127,9 +127,9 @@ public class Player {
 	 */
 	public void doubleDown(Shoe shoe) {
 		if (isTurn) {
-			hands.get(handIndex).addCard(shoe);
-			hands.get(handIndex).setBet(hands.get(handIndex).getBet() * 2);
-			hands.get(handIndex).removeCard();
+			hands.get(playHand).addCard(shoe);
+			hands.get(playHand).setBet(hands.get(playHand).getBet() * 2);
+			hands.get(playHand).removeCard();
 			changeTurn();
 		}
 	}
@@ -140,14 +140,14 @@ public class Player {
 	 */
 	public void split(Shoe shoe) {
 		if (isTurn) {
-			if (hands.get(handIndex).getCollection().get(0).getSoftValue() != hands.get(handIndex).getCollection().get(1).getSoftValue()) { // compare values of both cards in hand
+			if (hands.get(playHand).getCollection().get(0).getSoftValue() != hands.get(playHand).getCollection().get(1).getSoftValue()) { // compare values of both cards in hand
 				return; // not able to split since not same rank
 			} else {
 				hands.add(new Hand()); // add new hand to Hand list
-				hands.get(++handIndex).addCard(hands.get(handIndex).select()); // move card from first hand to second hand
-				hands.get(handIndex).removeCard(); // remove card from first hand
-				hands.get(++handIndex).setBet(hands.get(handIndex).getBet()); // set the bet for second hand to same as first hand
-				hands.get(++handIndex).addCard(shoe); // draw card from shoe
+				hands.get(++playHand).addCard(hands.get(playHand).select()); // move card from first hand to second hand
+				hands.get(playHand).removeCard(); // remove card from first hand
+				hands.get(++playHand).setBet(hands.get(playHand).getBet()); // set the bet for second hand to same as first hand
+				hands.get(++playHand).addCard(shoe); // draw card from shoe
 				shoe.removeCard(); // remove card from shoe
 			}
 		}

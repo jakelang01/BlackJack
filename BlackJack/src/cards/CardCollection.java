@@ -16,7 +16,7 @@ public class CardCollection {
 	/**
 	 * Keeps the card index at 0 so always picking and removing first card
 	 */
-	private final int cardIndex = 0;
+	private final int firstCard = 0;
 
 	/**
 	 * Initializes the new card collection to an ArrayList so it can be of any size
@@ -37,14 +37,14 @@ public class CardCollection {
 	 * @return - returns the first card in the collection
 	 */
 	public Card select() {
-		return collection.get(cardIndex);
+		return collection.get(firstCard);
 	}
 	
 	/**
 	 * Removes the first card in the collection
 	 */
 	public void removeCard() {
-		collection.remove(cardIndex);
+		collection.remove(firstCard);
 	}
 
 	/**

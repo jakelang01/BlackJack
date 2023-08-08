@@ -25,6 +25,7 @@ public class Hand extends CardCollection {
 	 */
 	public void addCard(CardCollection col) {
 		getCollection().add(col.select());
+		col.removeCard();
 	}
 
 	/**

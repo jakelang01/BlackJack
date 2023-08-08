@@ -28,6 +28,13 @@ public class Game {
 		return shoe;
 	}
 	
+	public void deal() {
+		player.getHand(0).addCard(shoe);
+		dealer.getHand(0).addCard(shoe);
+		player.getHand(0).addCard(shoe);
+		dealer.getHand(0).addCard(shoe);
+	}
+	
 	public ArrayList<Card> getHand(Hand person) {
 		return person.getCollection();
 	}
