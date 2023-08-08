@@ -24,19 +24,11 @@ public class Game {
 		dealer = new Player("Dealer");
 	}
 	
-	public Shoe getShoe() {
-		return shoe;
-	}
-	
 	public void deal() {
 		player.getHand(0).addCard(shoe);
 		dealer.getHand(0).addCard(shoe);
 		player.getHand(0).addCard(shoe);
 		dealer.getHand(0).addCard(shoe);
-	}
-	
-	public ArrayList<Card> getHand(Hand person) {
-		return person.getCollection();
 	}
 
 	public int getShoeSize() {
