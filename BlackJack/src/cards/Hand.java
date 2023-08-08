@@ -1,5 +1,9 @@
 package cards;
 
+import java.util.ArrayList;
+
+import game.Player;
+
 /**
  * 
  * @author Jake Langenfeld
@@ -8,11 +12,16 @@ package cards;
 
 public class Hand extends CardCollection {
 	
+	private int bet;
+	private Player player;
+	
 	/**
 	 * Creates a new hand object
 	 */
-	public Hand() {
+	public Hand(Player name) {
 		super();
+		bet = 0;
+		player = name;
 	}
 
 	/**
@@ -83,12 +92,12 @@ public class Hand extends CardCollection {
 		}
 	}
 	
-	public void setBet() {
-		
+	public void setBet(int bet) {
+		this.bet = bet;
 	}
 	
 	public int getBet() {
-		
+		return bet;
 	}
 
 }

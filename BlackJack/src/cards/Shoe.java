@@ -24,7 +24,7 @@ public class Shoe extends CardCollection {
 			fill();
 		}
 	}
-
+	
 	/**
 	 * Fills the shoe with every rank and suit combination to simulate a full deck
 	 * (Joker not included)

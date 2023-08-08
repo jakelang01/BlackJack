@@ -1,5 +1,7 @@
 package game;
 
+import java.util.ArrayList;
+
 /**
  * 
  * @author Jake Langenfeld
@@ -8,40 +10,30 @@ package game;
 
 import cards.Card;
 import cards.Shoe;
+import cards.Hand;
 
 public class Game {
 	private Shoe shoe;
-	private Player one;
-	private Player dealer;
+	private Hand player;
+	private Hand dealer;
 
 	public Game() {
 		shoe = new Shoe(6);
-		one = new Player("Jake");
-		dealer = new Player("Dealer");
+		shoe.shuffle();
+		player = new Hand();
+		dealer = new Hand();
+	}
+	
+	public Shoe getShoe() {
+		return shoe;
+	}
+	
+	public ArrayList<Card> getHand(Hand person) {
+		return person.getCollection();
 	}
 
-	public Card[] getHand() {
-		return null;
+	public int getShoeSize() {
+		return shoe.collectionSize();
 	}
-
-	public Card hit() {
-		return null;
-	}
-
-	public void stay() {
-
-	}
-
-	public Card doubleDown() {
-		return null;
-	}
-
-	public Card split() {
-		return null;
-	}
-
-	public Card drawCard() {
-		return null;
-
-	}
+	
 }

@@ -61,4 +61,8 @@ public class CardCollection {
 	public ArrayList<Card> getCollection() {
 		return collection;
 	}
+	
+	public int collectionSize() {
+		return collection.size();
+	}
 }
