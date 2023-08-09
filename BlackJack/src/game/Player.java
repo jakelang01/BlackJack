@@ -172,7 +172,7 @@ public class Player {
 				hands.get(playHand).removeCard(); // remove card from first hand
 				hands.get(++playHand).setBet(hands.get(playHand).getBet()); // set the bet for second hand to same as
 																			// first hand
-				hands.get(++playHand).addCard(shoe); // draw card from shoe
+				hands.get(playHand).addCard(shoe); // draw card from shoe and add to the play hand
 				shoe.removeCard(); // remove card from shoe
 			}
 		}
