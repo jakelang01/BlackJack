@@ -1,13 +1,12 @@
 package game;
 
-import java.util.ArrayList;
-
 /**
  * 
  * @author Jake Langenfeld
  *
  */
 
+import java.util.ArrayList;
 import cards.Card;
 import cards.Shoe;
 import cards.Hand;
