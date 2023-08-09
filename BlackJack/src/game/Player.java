@@ -18,12 +18,14 @@ public class Player {
 	private int bankroll;
 	private boolean isTurn;
 	/**
-	 * Keeps track of the current hand being played (if split and have multiple hands)
+	 * Keeps track of the current hand being played (if split and have multiple
+	 * hands)
 	 */
 	private int playHand;
 
 	/**
 	 * Creates a new Player object
+	 * 
 	 * @param name - the name of the player
 	 */
 	public Player(String name) {
@@ -36,7 +38,8 @@ public class Player {
 
 	/**
 	 * Creates a new Player object with a bankroll
-	 * @param name - the name of the player
+	 * 
+	 * @param name     - the name of the player
 	 * @param bankroll - the amount of money the player has
 	 */
 	public Player(String name, int bankroll) {
@@ -57,15 +60,28 @@ public class Player {
 			isTurn = true;
 		}
 	}
-	
+
 	/**
 	 * Add to the players bankroll
+	 * 
 	 * @param money - amount to add to bankroll
 	 */
 	public void addBankroll(int money) {
 		bankroll += money;
 	}
 
+	public int getBankroll() {
+		return bankroll;
+	}
+
+	public boolean bankrupt() {
+		if (bankroll == 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
 	/**
 	 * Make it the players turn
 	 */
@@ -73,12 +89,9 @@ public class Player {
 		isTurn = true;
 	}
 
-	public int getBankroll() {
-		return bankroll;
-	}
-
 	/**
 	 * Return the hand at a certain index in the hand list
+	 * 
 	 * @param hand - index of the hand
 	 * @return - the hand at the index location
 	 */
@@ -92,6 +105,7 @@ public class Player {
 
 	/**
 	 * Place a bet for this hand
+	 * 
 	 * @param bet - amount of money for this hand
 	 */
 	public void placeBet(int bet) {
@@ -101,7 +115,9 @@ public class Player {
 	}
 
 	/**
-	 * Hitting adds a card to the hand from the shoe and removes that card from the shoe
+	 * Hitting adds a card to the hand from the shoe and removes that card from the
+	 * shoe
+	 * 
 	 * @param shoe - the shoe that is being drawn from
 	 */
 	public void hit(Shoe shoe) {
@@ -112,18 +128,21 @@ public class Player {
 	}
 
 	/**
-	 * Staying can end the players turn or move to their next hand if they split their cards
+	 * Staying can end the players turn or move to their next hand if they split
+	 * their cards
 	 */
 	public void stay() {
 		if (isTurn && hands.size() > 1) {
 			playHand++; // move to next player
-		} else if(isTurn) {
+		} else if (isTurn) {
 			changeTurn();
 		}
 	}
 
 	/**
-	 * Doubling down adds one card to the hand and doubles the bet and ends the players turn
+	 * Doubling down adds one card to the hand and doubles the bet and ends the
+	 * players turn
+	 * 
 	 * @param shoe - the shoe that is being drawn from
 	 */
 	public void doubleDown(Shoe shoe) {
@@ -136,18 +155,23 @@ public class Player {
 	}
 
 	/**
-	 * Splitting can only occur if the 2 dealt cards are the same value then they will be moved to 2 different hands and played separately. The bet is repeated for the additional hand.
+	 * Splitting can only occur if the 2 dealt cards are the same value then they
+	 * will be moved to 2 different hands and played separately. The bet is repeated
+	 * for the additional hand.
+	 * 
 	 * @param shoe - the shoe that is being drawn from
 	 */
 	public void split(Shoe shoe) {
 		if (isTurn) {
-			if (hands.get(playHand).getCollection().get(0).getSoftValue() != hands.get(playHand).getCollection().get(1).getSoftValue()) { // compare values of both cards in hand
+			if (hands.get(playHand).getCollection().get(0).getSoftValue() != hands.get(playHand).getCollection().get(1)
+					.getSoftValue()) { // compare values of both cards in hand
 				return; // not able to split since not same rank
 			} else {
 				hands.add(new Hand()); // add new hand to Hand list
 				hands.get(++playHand).addCard(hands.get(playHand).select()); // move card from first hand to second hand
 				hands.get(playHand).removeCard(); // remove card from first hand
-				hands.get(++playHand).setBet(hands.get(playHand).getBet()); // set the bet for second hand to same as first hand
+				hands.get(++playHand).setBet(hands.get(playHand).getBet()); // set the bet for second hand to same as
+																			// first hand
 				hands.get(++playHand).addCard(shoe); // draw card from shoe
 				shoe.removeCard(); // remove card from shoe
 			}
@@ -159,7 +183,7 @@ public class Player {
 	 */
 	public void displayPlayer() {
 		System.out.println(getName());
-		for(int i = 0; i < hands.size(); i++) {
+		for (int i = 0; i < hands.size(); i++) {
 			System.out.println(hands.get(i));
 		}
 	}
