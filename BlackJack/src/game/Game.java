@@ -9,6 +9,7 @@ package game;
 import java.util.ArrayList;
 import cards.Card;
 import cards.Shoe;
+import players.Player;
 import cards.Hand;
 
 public class Game {
