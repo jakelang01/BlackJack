@@ -150,7 +150,7 @@ public class Player {
 			hands.get(playHand).addCard(shoe);
 			hands.get(playHand).setBet(hands.get(playHand).getBet() * 2);
 			hands.get(playHand).removeCard();
-			changeTurn();
+			stay();
 		}
 	}
 
