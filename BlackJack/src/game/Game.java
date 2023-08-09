@@ -29,9 +29,5 @@ public class Game {
 		player.getHand(0).addCard(shoe);
 		dealer.getHand(0).addCard(shoe);
 	}
-
-	public int getShoeSize() {
-		return shoe.collectionSize();
-	}
 	
 }

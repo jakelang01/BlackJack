@@ -40,6 +40,7 @@ public class Player {
 	 * @param bankroll - the amount of money the player has
 	 */
 	public Player(String name, int bankroll) {
+		hands = new ArrayList<Hand>();
 		hands.add(new Hand());
 		this.bankroll = bankroll;
 		isTurn = false;
