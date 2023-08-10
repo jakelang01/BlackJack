@@ -8,14 +8,13 @@ package cards;
 
 public class Hand extends CardCollection {
 
-	private int bet;
+	private int bet = 0;
 
 	/**
 	 * Creates a new hand object
 	 */
 	public Hand() {
 		super();
-		bet = 0;
 	}
 
 	/**

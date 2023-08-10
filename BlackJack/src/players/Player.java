@@ -16,12 +16,12 @@ public class Player {
 	private String name;
 	private ArrayList<Hand> hands;
 	private int bankroll;
-	private boolean isTurn;
+	private boolean isTurn = false;
 	/**
 	 * Keeps track of the current hand being played (if split and have multiple
 	 * hands)
 	 */
-	private int playHand;
+	private int playHand = 0;
 
 	/**
 	 * Creates a new Player object
@@ -32,8 +32,6 @@ public class Player {
 		hands = new ArrayList<Hand>();
 		hands.add(new Hand());
 		this.name = name;
-		isTurn = false;
-		playHand = 0;
 	}
 
 	/**
@@ -46,7 +44,6 @@ public class Player {
 		hands = new ArrayList<Hand>();
 		hands.add(new Hand());
 		this.bankroll = bankroll;
-		isTurn = false;
 		this.name = name;
 	}
 
