@@ -6,11 +6,8 @@ package game;
  *
  */
 
-import java.util.ArrayList;
-import cards.Card;
 import cards.Shoe;
 import players.Player;
-import cards.Hand;
 
 public class Game {
 	private Shoe shoe;
@@ -20,15 +17,31 @@ public class Game {
 	public Game() {
 		shoe = new Shoe(6);
 		shoe.shuffle();
-		player = new Player("Jake", 20);
+		player = new Player("Jake");
 		dealer = new Player("Dealer");
 	}
-	
+
 	public void deal() {
-		player.getHand(0).addCard(shoe);
-		dealer.getHand(0).addCard(shoe);
-		player.getHand(0).addCard(shoe);
-		dealer.getHand(0).addCard(shoe);
+		player.getHand().addCard(shoe);
+		dealer.getHand().addCard(shoe);
+		player.getHand().addCard(shoe);
+		dealer.getHand().addCard(shoe);
 	}
 	
+	public Player getPlayer(Player player) {
+		return player;
+	}
+	
+	public Shoe getShoe() {
+		return shoe;
+	}
+	
+	public Player handWinner() {
+		if (player.getHand().handSoftValue() > dealer.getHand().handSoftValue()) {
+			return player;
+		} else {
+			return dealer;
+		}
+	}
+
 }

@@ -33,6 +33,10 @@ public class Player {
 		hands.add(new Hand());
 		this.name = name;
 	}
+	
+	public int numberOfHands() {
+		return hands.size();
+	}
 
 	/**
 	 * Sets the players turn to false if true and vice-versa
@@ -79,8 +83,8 @@ public class Player {
 	 * @param hand - index of the hand
 	 * @return - the hand at the index location
 	 */
-	public Hand getHand(int hand) {
-		return hands.get(hand);
+	public Hand getHand() {
+		return hands.get(playHand);
 	}
 
 	public String getName() {
@@ -93,9 +97,13 @@ public class Player {
 	 * @param bet - amount of money for this hand
 	 */
 	public void placeBet(int bet) {
-		if (isTurn && getHand(playHand).getHandSize() == 0) {
+		if (isTurn && getHand().getHandSize() == 0) {
 			hands.get(playHand).setBet(bet);
 		}
+	}
+	
+	public void surrender() {
+		bankroll -= getHand().getBet();
 	}
 
 	/**
@@ -147,8 +155,8 @@ public class Player {
 	 */
 	public void split(Shoe shoe) {
 		if (isTurn) {
-			if (hands.get(playHand).getCollection().get(0).getSoftValue() != hands.get(playHand).getCollection().get(1)
-					.getSoftValue()) { // compare values of both cards in hand
+			if (hands.get(playHand).getCollection().get(0).cardSoftValue() != hands.get(playHand).getCollection().get(1)
+					.cardSoftValue()) { // compare values of both cards in hand
 				return; // not able to split since not same rank
 			} else {
 				hands.add(new Hand()); // add new hand to Hand list

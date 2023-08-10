@@ -41,7 +41,7 @@ public class Card {
 	 * Evaluates the rank enum to determine what soft value it holds
 	 * @return - returns the soft value of the card
 	 */
-	public int getSoftValue() {
+	public int cardSoftValue() {
 		switch (rank) {
 		case Ace:
 			return 11;
@@ -70,7 +70,7 @@ public class Card {
 	 * Evaluates the rank enum to determine what hard value it holds
 	 * @return - returns the hard value of the card
 	 */
-	public int getHardValue() {
+	public int cardHardValue() {
 		switch (rank) {
 		case Ace:
 			return 1;

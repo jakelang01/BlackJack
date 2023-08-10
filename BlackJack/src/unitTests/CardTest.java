@@ -28,10 +28,10 @@ public class CardTest {
 		Card newCard = new Card(ranks[rand.nextInt(ranks.length)], suits[rand.nextInt(suits.length)]);
 		System.out.println(newCard.toString());
 		
-		System.out.println(card.getSoftValue());
-		System.out.println(card.getHardValue());
-		System.out.println(newCard.getSoftValue());
-		System.out.println(newCard.getHardValue());
+		System.out.println(card.cardSoftValue());
+		System.out.println(card.cardHardValue());
+		System.out.println(newCard.cardSoftValue());
+		System.out.println(newCard.cardHardValue());
 	}
 
 }

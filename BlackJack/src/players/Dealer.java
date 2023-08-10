@@ -7,7 +7,7 @@ public class Dealer extends Player {
 	}
 
 	public boolean busted() {
-		if (getHand(0).getSoftValue() > 21) {
+		if (getHand().handSoftValue() > 21) {
 			return true;
 		} else {
 			return false;

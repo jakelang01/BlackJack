@@ -6,6 +6,8 @@ package cards;
  *
  */
 
+import cards.Card.Rank;
+
 public class Hand extends CardCollection {
 
 	private int bet = 0;
@@ -40,15 +42,41 @@ public class Hand extends CardCollection {
 		return getCollection().size();
 	}
 
+	public boolean moreThanOneAce() {
+		int numAce = 0;
+		for (int i = 0; i < getHandSize(); i++) {
+			if (getCollection().get(i).getRank() == Rank.Ace) {
+				numAce++;
+			}
+		}
+		if (numAce >= 2) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 	/**
 	 * Calculates the soft value of the hand
 	 * 
 	 * @return - returns the soft value of the hand
 	 */
-	public int getSoftValue() {
+	public int handSoftValue() {
 		int value = 0;
-		for (int i = 0; i < getHandSize(); i++) {
-			value += getCollection().get(i).getSoftValue();
+		int numAce = 0;
+
+		if (moreThanOneAce()) {
+			for (int i = 0; i < getHandSize(); i++) {
+				if (getCollection().get(i).getRank() == Rank.Ace && ++numAce == 1) {
+					value += getCollection().get(i).cardSoftValue();
+				} else {
+					value += getCollection().get(i).cardHardValue();
+				}
+			}
+		} else {
+			for (int i = 0; i < getHandSize(); i++) {
+				value += getCollection().get(i).cardSoftValue();
+			}
 		}
 		return value;
 	}
@@ -58,10 +86,10 @@ public class Hand extends CardCollection {
 	 * 
 	 * @return - returns the hard value of the hand
 	 */
-	public int getHardValue() {
+	public int handHardValue() {
 		int value = 0;
 		for (int i = 0; i < getHandSize(); i++) {
-			value += getCollection().get(i).getHardValue();
+			value += getCollection().get(i).cardHardValue();
 		}
 		return value;
 	}
@@ -72,7 +100,7 @@ public class Hand extends CardCollection {
 	 * @return - returns true if the hand is a blackjack otherwise returns false
 	 */
 	public boolean blackjack() {
-		if (getCollection().size() == 2 && getSoftValue() == 21) {
+		if (getCollection().size() == 2 && handSoftValue() == 21) {
 			return true;
 		} else {
 			return false;
@@ -85,7 +113,7 @@ public class Hand extends CardCollection {
 	 * @return - returns true if the hand is busted
 	 */
 	public boolean busted() {
-		if (getHardValue() > 21) {
+		if (handHardValue() > 21) {
 			return true;
 		} else {
 			return false;
