@@ -9,10 +9,12 @@ package cards;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import cards.Card.Rank;
+
 public class CardCollection {
 
 	private ArrayList<Card> collection;
-	
+
 	/**
 	 * Keeps the card index at 0 so always picking and removing first card
 	 */
@@ -34,12 +36,13 @@ public class CardCollection {
 
 	/**
 	 * Selects the first card in the collection
+	 * 
 	 * @return - returns the first card in the collection
 	 */
 	public Card select() {
 		return collection.get(firstCard);
 	}
-	
+
 	/**
 	 * Removes the first card in the collection
 	 */
@@ -56,13 +59,33 @@ public class CardCollection {
 
 	/**
 	 * Gets the collection so it can be edited
+	 * 
 	 * @return - returns the collection
 	 */
 	public ArrayList<Card> getCollection() {
 		return collection;
 	}
-	
+
+	/**
+	 * Returns the size of the collection
+	 * 
+	 * @return - the size of the collection
+	 */
 	public int collectionSize() {
 		return collection.size();
+	}
+
+	/**
+	 * Checks the collection to see if there is an ace
+	 * 
+	 * @return - true if it contains an ace otherwise false
+	 */
+	public boolean containsAce() {
+		for (int i = 0; i < collectionSize(); i++) {
+			if (getCollection().get(i).getRank() == Rank.Ace) {
+				return true;
+			}
+		}
+		return false;
 	}
 }

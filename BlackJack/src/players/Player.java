@@ -16,7 +16,7 @@ public class Player {
 	private String name;
 	private ArrayList<Hand> hands;
 	private int bankroll;
-	private boolean isTurn = false;
+	private boolean isTurn = true;
 	/**
 	 * Keeps track of the current hand being played (if split and have multiple
 	 * hands)
@@ -33,7 +33,12 @@ public class Player {
 		hands.add(new Hand());
 		this.name = name;
 	}
-	
+
+	/**
+	 * Returns the numbers of hands the player has
+	 * 
+	 * @return - the number of hands the player owns
+	 */
 	public int numberOfHands() {
 		return hands.size();
 	}
@@ -50,7 +55,7 @@ public class Player {
 	}
 
 	/**
-	 * Add to the players bankroll
+	 * Add money to the players bankroll
 	 * 
 	 * @param money - amount to add to bankroll
 	 */
@@ -58,10 +63,20 @@ public class Player {
 		bankroll += money;
 	}
 
+	/**
+	 * Returns the players bankroll
+	 * 
+	 * @return - their bankroll
+	 */
 	public int getBankroll() {
 		return bankroll;
 	}
 
+	/**
+	 * Checks if the players bankroll is 0
+	 * 
+	 * @return - true if bankroll equals 0 otherwise false
+	 */
 	public boolean bankrupt() {
 		if (bankroll == 0) {
 			return true;
@@ -71,37 +86,23 @@ public class Player {
 	}
 
 	/**
-	 * Make it the players turn
-	 */
-	public void setTurnTrue() {
-		isTurn = true;
-	}
-
-	/**
-	 * Return the hand at a certain index in the hand list
+	 * Return the current play hand
 	 * 
-	 * @param hand - index of the hand
-	 * @return - the hand at the index location
+	 * @return - the current play hand
 	 */
 	public Hand getHand() {
 		return hands.get(playHand);
 	}
 
+	/**
+	 * Returns the players name
+	 * 
+	 * @return - the players name
+	 */
 	public String getName() {
 		return name;
 	}
 
-	/**
-	 * Place a bet for this hand
-	 * 
-	 * @param bet - amount of money for this hand
-	 */
-	public void placeBet(int bet) {
-		if (isTurn && getHand().getHandSize() == 0) {
-			hands.get(playHand).setBet(bet);
-		}
-	}
-	
 	public void surrender() {
 		bankroll -= getHand().getBet();
 	}
@@ -114,8 +115,8 @@ public class Player {
 	 */
 	public void hit(Shoe shoe) {
 		if (isTurn) {
-			hands.get(playHand).addCard(shoe);
-			shoe.removeCard();
+			hands.get(playHand).addCard(shoe); // adds the first card from the shoe
+			shoe.removeCard(); // removes the first card from the shoe
 		}
 	}
 
@@ -124,10 +125,10 @@ public class Player {
 	 * their cards
 	 */
 	public void stay() {
-		if (isTurn && hands.size() > 1) {
-			playHand++; // move to next player
+		if (isTurn && !getHand().equals(hands.get(hands.size() - 1))) { // if its the players turn and this isn't their last hand
+			playHand++; // move to the next hand
 		} else if (isTurn) {
-			changeTurn();
+			changeTurn(); // otherwise end the players turn
 		}
 	}
 
@@ -139,10 +140,10 @@ public class Player {
 	 */
 	public void doubleDown(Shoe shoe) {
 		if (isTurn) {
-			hands.get(playHand).addCard(shoe);
-			hands.get(playHand).setBet(hands.get(playHand).getBet() * 2);
-			hands.get(playHand).removeCard();
-			stay();
+			hands.get(playHand).addCard(shoe); // add one card to the players hand
+			hands.get(playHand).setBet(hands.get(playHand).getBet() * 2); // double the bet
+			hands.get(playHand).removeCard(); // remove the card from the shoe
+			stay(); // end the turn
 		}
 	}
 
@@ -176,7 +177,7 @@ public class Player {
 	public void displayPlayer() {
 		System.out.println(getName());
 		for (int i = 0; i < hands.size(); i++) {
-			System.out.println(hands.get(i));
+			hands.get(i).printCollection();
 		}
 	}
 }

@@ -7,6 +7,7 @@ package cards;
  */
 
 import cards.Card.Rank;
+import cards.Card.Suit;
 
 public class Hand extends CardCollection {
 
@@ -30,7 +31,7 @@ public class Hand extends CardCollection {
 	}
 
 	/**
-	 * Adds a specific card to the hand
+	 * Adds a specific card to the hand (used for splitting)
 	 * 
 	 * @param card - the card to be added to the hand
 	 */
@@ -38,10 +39,20 @@ public class Hand extends CardCollection {
 		getCollection().add(card);
 	}
 
+	/**
+	 * Returns the number of cards in the hand
+	 * 
+	 * @return - the number of cards in the hand
+	 */
 	public int getHandSize() {
 		return getCollection().size();
 	}
 
+	/**
+	 * Checks the hand to see if there is more than one ace
+	 * 
+	 * @return - true if there is more than one ace otherwise false
+	 */
 	public boolean moreThanOneAce() {
 		int numAce = 0;
 		for (int i = 0; i < getHandSize(); i++) {
@@ -65,17 +76,20 @@ public class Hand extends CardCollection {
 		int value = 0;
 		int numAce = 0;
 
-		if (moreThanOneAce()) {
+		if (moreThanOneAce()) { // checks if there's more than one ace in the hand
 			for (int i = 0; i < getHandSize(); i++) {
-				if (getCollection().get(i).getRank() == Rank.Ace && ++numAce == 1) {
-					value += getCollection().get(i).cardSoftValue();
+				if (getCollection().get(i).getRank() == Rank.Ace && numAce == 0) { // checks if this is the first ace in
+																					// the hand
+					value += getCollection().get(i).cardSoftValue(); // adds the soft value for first ace
+					numAce++; // increments so other aces use hard value
 				} else {
-					value += getCollection().get(i).cardHardValue();
+					value += getCollection().get(i).cardHardValue(); // add hard value of every other card besides first
+																		// ace
 				}
 			}
-		} else {
+		} else { // only one ace
 			for (int i = 0; i < getHandSize(); i++) {
-				value += getCollection().get(i).cardSoftValue();
+				value += getCollection().get(i).cardSoftValue(); // add all soft values (only affects the ace)
 			}
 		}
 		return value;
@@ -95,12 +109,25 @@ public class Hand extends CardCollection {
 	}
 
 	/**
+	 * Returns the hands final value
+	 * 
+	 * @return - the hand value
+	 */
+	public int handValue() {
+		if (containsAce()) {
+			// WORK ON THIS!!!!!!!!!!!!!!!!
+		}
+		return 0;
+	}
+
+	/**
 	 * Checks if the hand only has 2 dealt cards and they equals 21
 	 * 
 	 * @return - returns true if the hand is a blackjack otherwise returns false
 	 */
 	public boolean blackjack() {
-		if (getCollection().size() == 2 && handSoftValue() == 21) {
+		if (getCollection().size() == 2 && handSoftValue() == 21) { // if 2 cards are dealt and the soft values equal 21
+																	// (ace and 10)
 			return true;
 		} else {
 			return false;
@@ -120,10 +147,20 @@ public class Hand extends CardCollection {
 		}
 	}
 
+	/**
+	 * Sets the bet for the hand
+	 * 
+	 * @param bet - the bet for the hand
+	 */
 	public void setBet(int bet) {
 		this.bet = bet;
 	}
 
+	/**
+	 * Returns the bet for the hand
+	 * 
+	 * @return - the bet for the hand
+	 */
 	public int getBet() {
 		return bet;
 	}

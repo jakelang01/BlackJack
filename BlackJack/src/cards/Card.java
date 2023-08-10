@@ -21,6 +21,7 @@ public class Card {
 
 	/**
 	 * Creates a new card object
+	 * 
 	 * @param r - the rank of the card
 	 * @param s - the suit of the card
 	 */
@@ -29,16 +30,27 @@ public class Card {
 		rank = r;
 	}
 
+	/**
+	 * Returns the rank of the card
+	 * 
+	 * @return - the rank of the card
+	 */
 	public Rank getRank() {
 		return rank;
 	}
 
+	/**
+	 * Returns the suit of the card
+	 * 
+	 * @return - the suit of the card
+	 */
 	public Suit getSuit() {
 		return suit;
 	}
 
 	/**
 	 * Evaluates the rank enum to determine what soft value it holds
+	 * 
 	 * @return - returns the soft value of the card
 	 */
 	public int cardSoftValue() {
@@ -61,13 +73,14 @@ public class Card {
 			return 8;
 		case Nine:
 			return 9;
-		default:
+		default: // ten, jack, queen, king
 			return 10;
 		}
 	}
 
 	/**
 	 * Evaluates the rank enum to determine what hard value it holds
+	 * 
 	 * @return - returns the hard value of the card
 	 */
 	public int cardHardValue() {
@@ -90,11 +103,14 @@ public class Card {
 			return 8;
 		case Nine:
 			return 9;
-		default:
+		default: // ten, jack, queen, king
 			return 10;
 		}
 	}
 
+	/**
+	 * Prints the rank and the suit of the card
+	 */
 	@Override
 	public String toString() {
 		return getRank() + " of " + getSuit();
