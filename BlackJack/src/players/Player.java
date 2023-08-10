@@ -35,19 +35,6 @@ public class Player {
 	}
 
 	/**
-	 * Creates a new Player object with a bankroll
-	 * 
-	 * @param name     - the name of the player
-	 * @param bankroll - the amount of money the player has
-	 */
-	public Player(String name, int bankroll) {
-		hands = new ArrayList<Hand>();
-		hands.add(new Hand());
-		this.bankroll = bankroll;
-		this.name = name;
-	}
-
-	/**
 	 * Sets the players turn to false if true and vice-versa
 	 */
 	public void changeTurn() {
@@ -78,7 +65,7 @@ public class Player {
 			return false;
 		}
 	}
-	
+
 	/**
 	 * Make it the players turn
 	 */
