@@ -49,6 +49,14 @@ public class CardCollection {
 	public void removeCard() {
 		collection.remove(firstCard);
 	}
+	
+	public void removeCard(Card card) {
+		for(int i = 0; i < getCollection().size(); i++) {
+			if(getCollection().get(i).equals(card)) {
+				getCollection().remove(i);
+			}
+		}
+	}
 
 	/**
 	 * Prints the entire collection
