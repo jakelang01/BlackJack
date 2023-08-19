@@ -11,7 +11,7 @@ import cards.Card.Suit;
 
 public class Hand extends CardCollection {
 
-	private int bet = 0;
+	private double bet = 0;
 
 	/**
 	 * Creates a new hand object
@@ -140,7 +140,7 @@ public class Hand extends CardCollection {
 	 * 
 	 * @param bet - the bet for the hand
 	 */
-	public void setBet(int bet) {
+	public void setBet(double bet) {
 		this.bet = bet;
 	}
 
@@ -149,7 +149,7 @@ public class Hand extends CardCollection {
 	 * 
 	 * @return - the bet for the hand
 	 */
-	public int getBet() {
+	public double getBet() {
 		return bet;
 	}
 

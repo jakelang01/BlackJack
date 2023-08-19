@@ -15,7 +15,7 @@ public class Player {
 
 	private String name;
 	private ArrayList<Hand> hands;
-	private int bankroll;
+	private double bankroll;
 	private boolean isTurn = true;
 	/**
 	 * Keeps track of the current hand being played (if split and have multiple
@@ -53,6 +53,10 @@ public class Player {
 			isTurn = true;
 		}
 	}
+	
+	public boolean isTurn() {
+		return isTurn;
+	}
 
 	/**
 	 * Add money to the players bankroll
@@ -68,7 +72,7 @@ public class Player {
 	 * 
 	 * @return - their bankroll
 	 */
-	public int getBankroll() {
+	public double getBankroll() {
 		return bankroll;
 	}
 
@@ -103,8 +107,19 @@ public class Player {
 		return name;
 	}
 
-	public void surrender() {
-		bankroll -= getHand().getBet();
+	public void surrender() { // move to game class i think
+		if(isTurn) { // if dealer has ace or ten
+			bankroll -= getHand().getBet() / 2;
+			while(getHand().getHandSize() > 0) {
+				getHand().removeCard();
+			}
+		}
+	}
+	
+	public void insurance() { // move to game class i think
+		if(isTurn) { // if dealer has ace
+			
+		}
 	}
 
 	/**
@@ -116,7 +131,6 @@ public class Player {
 	public void hit(Shoe shoe) {
 		if (isTurn) {
 			hands.get(playHand).addCard(shoe); // adds the first card from the shoe
-			shoe.removeCard(); // removes the first card from the shoe
 		}
 	}
 
@@ -143,7 +157,6 @@ public class Player {
 		if (isTurn) {
 			hands.get(playHand).addCard(shoe); // add one card to the players hand
 			hands.get(playHand).setBet(hands.get(playHand).getBet() * 2); // double the bet
-			hands.get(playHand).removeCard(); // remove the card from the shoe
 			stay(); // end the turn
 		}
 	}
@@ -163,11 +176,9 @@ public class Player {
 			} else {
 				hands.add(new Hand()); // add new hand to Hand list
 				hands.get(++playHand).addCard(hands.get(playHand).select()); // move card from first hand to second hand
-				hands.get(playHand).removeCard(); // remove card from first hand
 				hands.get(++playHand).setBet(hands.get(playHand).getBet()); // set the bet for second hand to same as
 																			// first hand
 				hands.get(playHand).addCard(shoe); // draw card from shoe and add to the play hand
-				shoe.removeCard(); // remove card from shoe
 			}
 		}
 	}
