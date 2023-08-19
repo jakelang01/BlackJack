@@ -97,6 +97,12 @@ public class Player {
 	public Hand getHand() {
 		return hands.get(playHand);
 	}
+	
+	public void printAllHands() {
+		for(int i = 0; i < numberOfHands(); i++) {
+			hands.get(i).printCollection();
+		}
+	}
 
 	/**
 	 * Returns the players name

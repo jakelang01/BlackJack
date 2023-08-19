@@ -25,20 +25,18 @@ public class PlayerTest {
 		System.out.println(p.getName());
 		
 		System.out.println("\nhit card");
-		p.hit(shoe);
-		p.getHand().printCollection();
-		p.hit(shoe);
-		p.getHand().printCollection();
-		
-		System.out.println("\nsurrender 25 bet");
 		p.getHand().setBet(25);
-		p.surrender();
+		System.out.printf("$%.2f\n", p.getHand().getBet());
+		p.hit(shoe);
 		p.getHand().printCollection();
-		System.out.printf("$%.2f\n", p.getBankroll());
+		p.hit(shoe);
+		p.getHand().printCollection();
 		
 		System.out.println("\nstay");
 		p.stay();
 		System.out.println(p.isTurn());
+		
+		System.out.println("\nchange turn");
 		p.changeTurn();
 		System.out.println(p.isTurn());
 		
