@@ -109,18 +109,6 @@ public class Hand extends CardCollection {
 	}
 
 	/**
-	 * Returns the hands final value
-	 * 
-	 * @return - the hand value
-	 */
-	public int handValue() {
-		if (containsAce()) {
-			// WORK ON THIS!!!!!!!!!!!!!!!!
-		}
-		return 0;
-	}
-
-	/**
 	 * Checks if the hand only has 2 dealt cards and they equals 21
 	 * 
 	 * @return - returns true if the hand is a blackjack otherwise returns false

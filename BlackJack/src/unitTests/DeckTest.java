@@ -29,7 +29,7 @@ public class DeckTest {
 		System.out.println("\nselect a card");
 		System.out.println(deck.select());
 		
-		System.out.println("\nremove same card from deck and print");
+		System.out.println("\nremove card from deck and print");
 		deck.removeCard();
 		deck.printCollection();
 		
