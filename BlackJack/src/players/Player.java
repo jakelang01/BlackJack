@@ -125,7 +125,8 @@ public class Player {
 	 * their cards
 	 */
 	public void stay() {
-		if (isTurn && !getHand().equals(hands.get(hands.size() - 1))) { // if its the players turn and this isn't their last hand
+		if (isTurn && !getHand().equals(hands.get(hands.size() - 1))) { // if its the players turn and this isn't their
+																		// last hand
 			playHand++; // move to the next hand
 		} else if (isTurn) {
 			changeTurn(); // otherwise end the players turn
@@ -155,7 +156,7 @@ public class Player {
 	 * @param shoe - the shoe that is being drawn from
 	 */
 	public void split(Shoe shoe) {
-		if (isTurn && hands.size() == 2) {
+		if (isTurn && hands.get(playHand).getHandSize() == 2) {
 			if (hands.get(playHand).getCollection().get(0).cardSoftValue() != hands.get(playHand).getCollection().get(1)
 					.cardSoftValue()) { // compare values of both cards in hand
 				return; // not able to split since not same rank
