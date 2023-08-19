@@ -107,9 +107,9 @@ public class Card {
 			return 10;
 		}
 	}
-	
+
 	public boolean equals(Card card) {
-		if(card.rank == this.rank && card.suit == this.suit) {
+		if (card.rank == this.rank && card.suit == this.suit) {
 			return true;
 		} else {
 			return false;

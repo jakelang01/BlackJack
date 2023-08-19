@@ -20,10 +20,10 @@ public class CardTest {
 		System.out.println(card.toString());
 		System.out.println(card.getRank());
 		System.out.println(card.getSuit());
-		
+
 		System.out.println(card.cardSoftValue());
 		System.out.println(card.cardHardValue());
-		
+
 		System.out.println("\nprint out a random card");
 		Random rand = new Random();
 		Rank[] ranks = Rank.values();
@@ -32,7 +32,7 @@ public class CardTest {
 		System.out.println(newCard.toString());
 		System.out.println(newCard.getRank());
 		System.out.println(newCard.getSuit());
-		
+
 		System.out.println(newCard.cardSoftValue());
 		System.out.println(newCard.cardHardValue());
 	}
