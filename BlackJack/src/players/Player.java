@@ -155,7 +155,7 @@ public class Player {
 	 * @param shoe - the shoe that is being drawn from
 	 */
 	public void split(Shoe shoe) {
-		if (isTurn) {
+		if (isTurn && hands.size() == 2) {
 			if (hands.get(playHand).getCollection().get(0).cardSoftValue() != hands.get(playHand).getCollection().get(1)
 					.cardSoftValue()) { // compare values of both cards in hand
 				return; // not able to split since not same rank
